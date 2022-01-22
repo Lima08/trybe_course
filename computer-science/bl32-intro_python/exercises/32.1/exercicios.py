@@ -1,4 +1,5 @@
-#  Agora a prática
+from math import ceil
+
 
 # Exercício 1: Crie uma função que receba dois números e retorne o maior deles.
 def higher_number(num1, num2):
@@ -42,7 +43,7 @@ def asterisk_function(arg):
 #  Trybe solução
 def draw_square(n):
     for row in range(n):
-        print(n * '*')
+        print(n * "*")
 
 
 # Exercício 4: Crie uma função que receba uma lista de nomes e retorne o nome
@@ -52,13 +53,13 @@ def draw_square(n):
 # 🦜 Uma dica: Utilize a função len() para verificar o tamanho do nome.
 
 
-def max_number(array):
-    # length_list = [len(name) for name in array]
-    # print(length_list)
-    # return max(length_list)
+# def max_number(array):
+# length_list = [len(name) for name in array]
+# print(length_list)
+# return max(length_list)
 
 
-print(max_number(["José", "Lucas", "Nádia", "Fernanda", "Cairo", "Joana"]))
+# print(max_number(["José", "Lucas", "Nádia", "Fernanda", "Cairo", "Joana"]))
 
 
 # Exercício 5:
@@ -67,8 +68,7 @@ print(max_number(["José", "Lucas", "Nádia", "Fernanda", "Cairo", "Joana"]))
 # que custam R$ 80,00. Crie uma função que retorne dois valores em uma tupla
 # contendo a quantidade de latas de tinta a serem compradas
 # e o preço total a partir do tamanho de uma parede(em m²).
-from math import ceil
-
+# ceil é importado de math
 def ink_calculetor(square_meter):
     can_price = 80
     can_yield = 54
@@ -78,12 +78,15 @@ def ink_calculetor(square_meter):
 
 print(ink_calculetor(55))
 
+
 #  Trybe solução
 def paint_costs(area):
     can_price = 80
-    required_liters = area / 3 # se cada litro faz 3 metros divide o a area em 3 para fazer a conta de quantos litros precisa. 
+    required_liters = area / 3
+    # se cada litro faz 3 metros divide o a area em
+    # 3 para fazer a conta de quantos litros precisa.
     required_cans = required_liters // 18
-    if required_liters % 18: # Se sobra metros adiciona mais uma lata
+    if required_liters % 18:  # Se sobra metros adiciona mais uma lata
         required_cans += 1
     return required_cans, required_cans * can_price
 
@@ -104,29 +107,51 @@ print(paint_costs(55))
 #   Triângulo Escaleno: três lados diferentes.
 
 
-
 #   Bônus
 # Exercício 1: Dada uma lista, descubra o menor elemento.
 # Por exemplo, [5, 9, 3, 19, 70, 8, 100, 2, 35, 27] deve retornar 2.
+def min_element(array):
+    return min(array)
+
+
+print(min_element([5, 9, 3, 19, 70, 8, 100, 2, 35, 27]))
+
+
+# ou (solução trybe)
+def minimum(array):
+    smaller = array[0]
+    for number in array:
+        if number < smaller:
+            smaller = number
+    return smaller
+
+
+print(minimum([5, 9, 3, 19, 70, 8, 100, 2, 35, 27]))
+
+
 # Exercício 2: Faça um programa que, dado um valor n qualquer,
 #  tal que n > 1, imprima na tela um triângulo retângulo com n * de base.
 #  Por exemplo, para n = 5 o triângulo terá 5 asteriscos na base:
-
 # n = 5
-
 # *
 # **
 # ***
 # ****
 # *****
+def asterisk_pyramid(number):
+    symbol = "*"
+    while len(symbol) <= number:
+        print(symbol)
+        symbol += "*"
 
+
+asterisk_pyramid(5)
 
 
 # Exercício 3:
 # Crie uma função que receba um número inteiro N e retorne
 #  o somatório de todos os números de 1 até N .
 # Por exemplo, para N = 5 , o valor esperado será 15 .
-
 
 
 # Exercício 4:
@@ -138,4 +163,8 @@ print(paint_costs(55))
 #     - Até 20 litros, desconto de 4% por litro;
 #     - Acima de 20 litros, desconto de 6% por litro.
 # Escreva uma função que receba o número de litros vendidos,
-#  o tipo de combustível (codificado da seguinte forma: A - álcool, G - gasolina), e retorne o valor a ser pago pelo cliente, sabendo-se que o preço do litro da gasolina é R$ 2,50, e o preço do litro do álcool é R$ 1,90. -->
+#  o tipo de combustível (
+#   codificado da seguinte forma: A - álcool, G - gasolina
+# ), e retorne o valor a ser pago pelo cliente,
+# sabendo-se que o preço do litro da gasolina é R$ 2,50,
+#  e o preço do litro do álcool é R$ 1,90. -->
