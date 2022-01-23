@@ -60,7 +60,7 @@ print(total)
 # Ex: line.split -> ["Marcos", "10"]
 
 estudantes_reprovados = []
-with open('exercises/helper/file.txt') as notas_estudantes:
+with open('exercises/helper/file_ex3_content.txt') as notas_estudantes:
     for line in notas_estudantes:
         estudante = line.split()
         if int(estudante[1]) < 6:
