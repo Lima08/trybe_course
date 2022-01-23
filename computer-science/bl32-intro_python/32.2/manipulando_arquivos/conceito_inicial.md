@@ -3,10 +3,10 @@ Seja para armazenar alguma informação processada ou para manipular imagens, á
 Podemos fazer uma operação de leitura, de escrita ou até de ambas, a depender da nossa necessidade. Porém independentemente da operação executada, é preciso sempre fechar o arquivo após operá-lo.
 
 A função open é a responsável por abrir um arquivo, tornando possível sua manipulação. Seu único parâmetro obrigatório é o nome do arquivo. Por padrão, arquivos são abertos somente para leitura, mas podemos modificar isto passando o modo com que vamos abrir o arquivo. No exemplo abaixo, estamos utilizando mode="w" , ou seja, estamos abrindo o arquivo para escrita:
-Copiar
+
 file = open("arquivo.txt", mode="w")  # ao abrir um arquivo para escrita, um novo arquivo é criado mesmo que ele já exista, sobrescrevendo o antigo.
 Para escrevermos um conteúdo em um arquivo utilizamos a função write :
-Copiar
+
 # file = open("arquivo.txt", mode="w")
 
 file.write("nome idade\n")
@@ -14,7 +14,7 @@ file.write("Maria 45\n")
 file.write("Miguel 33\n")
 💡 Podemos escrever em um arquivo apenas após abrirmos ele.
 Assim como podemos redirecionar a saída do nosso programa para a saída de erros, podemos fazer o mesmo redirecionando o conteúdo digitado dentro de print para um arquivo. Ou seja, também podemos escrever em um arquivo através do print .
-Copiar
+
 #
 # file.write("Miguel 33\n")
 
@@ -22,7 +22,7 @@ Copiar
 # Não precisa da quebra de linha, pois esse é um comportamento padrão do print
 print("Túlio 22", file=file)
 Para escrever múltiplas linhas podemos utilizar a função writelines . Repare que a função espera que cada linha tenha seu próprio caractere de separação ( \n ):
-Copiar
+
 #
 # print("Túlio 22", file=file)
 
@@ -30,20 +30,20 @@ Copiar
 LINES = ["Alberto 35\n", "Betina 22\n", "João 42\n", "Victor 19\n"]
 file.writelines(LINES)
 Abrimos o arquivo, escrevemos seu conteúdo, vamos então fechá-lo:
-Copiar
+
 # file.writelines(LINES)
 
 
 file.close()
 Mas por que devemos sempre fechar um arquivo? A resposta vem do sistema operacional. Temos um limite de quantos arquivos podemos abrir de uma só vez, e um erro é lançado quando atingimos esse limite. Vamos ver um código para demonstrar a ocorrência de um erro ao abrir muitos arquivos ao mesmo tempo:
-Copiar
+
 arquivos = []
 for index in range(10240):
     arquivos.append(open(f"arquivo{index}.txt", "w"))
 O número que o programa irá falhar pode variar, pois o sistema operacional mantém alguns arquivos abertos para seu próprio uso.
 Outro motivo importante para se fechar os arquivos é que normalmente a manipulação de arquivos é feita através de buffers . Ou seja, a escrita em disco pode não ser imediata. Quando fechamos o arquivo, garantimos que tudo aquilo que ainda não está escrito seja persistido.
 A leitura do conteúdo de um arquivo pode ser feita utilizando a função read . Para experimentar, vamos escrever em um arquivo e lê-lo logo em seguida!
-Copiar
+
 # escrita
 file = open("arquivo.txt", mode="w")
 file.write("Trybe S2")
@@ -55,7 +55,7 @@ content = file.read()
 print(content)
 file.close()  # não podemos esquecer de fechar o arquivo
 Um arquivo é também um iterável, ou seja, pode ser percorrido em um laço de repetição. A cada iteração, uma nova linha é retornada. Vamos fazer igual ao exemplo anterior, porém dessa vez vamos escrever mais de uma linha!
-Copiar
+
 # escrita
 file = open("arquivo.txt", mode="w")
 LINES = ["Olá\n", "mundo\n", "belo\n", "do\n", "Python\n"]
@@ -69,7 +69,7 @@ for line in file:
 file.close()  # não podemos esquecer de fechar o arquivo
 Além de arquivos textuais como os que manipulamos até agora, temos também arquivos binários. Eles são arquivos que contêm uma série de bytes e a sua leitura pode variar de acordo com o arquivo. Nesse caso, devemos acrescentar um b ao parâmetro mode , indicando que será utilizado o modo binário.
 As operações são similares a de um arquivo textual. Porém tanto a escrita quanto a leitura devem ser feitas utilizando bytes.
-Copiar
+
 # escrita
 file = open("arquivo.dat", mode="wb")
 file.write(b"C\xc3\xa1ssio 30")  # o prefixo b em uma string indica que seu valor está codificado em bytes
