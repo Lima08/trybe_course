@@ -1,3 +1,4 @@
+
 Comandos:
 >> input("Digite uma mensagem:")
 >> print("O resultado é", 42)  # saída: O resultado é 42
@@ -35,7 +36,9 @@ O comando para criação deste ambiente isolado é python3 -m venv .venv , sendo
 Este ambiente isolado será visto como um diretório criado na raiz do projeto. O ponto na frente do nome faz com que o diretório fique oculto.
 Depois de criado, temos de ativar este ambiente para usá-lo. Isto é importante, pois sempre que decidirmos trabalhar neste projeto devemos repetir este passo.
 Comando para ativação:
+
  source .venv/bin/activate
+
 
  Você pode conferir se o comando de ativação do ambiente virtual deu certo com o seguinte comando:
 
@@ -94,3 +97,4 @@ print(file.closed)
 
 Manipulando arquivos JSON
 Seus principais métodos para manipulação são: load , loads , dump , dumps .
+
