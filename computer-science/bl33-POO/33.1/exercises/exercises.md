@@ -1,6 +1,7 @@
 # Agora a prática
 # Vamos exercitar nossa capacidade de abstração em diferentes cenários. Em cada exercício reflita sobre a modelagem, as características, o comportamento e relações entre as classes e as implemente em Python!
 # Exercício 1: Em um contexto de orientação a objetos, como podemos definir o que são mensagens e qual a sua importância?
+<!-- São a forma que as instancias se comunicam umas com as outras -->
 
 # Exercício 2: Para exercitar nossa capacidade de abstração, vamos modelar algumas partes de um software de geometria. Como poderíamos modelar um objeto retângulo?
 
